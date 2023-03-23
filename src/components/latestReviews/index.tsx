@@ -106,9 +106,10 @@ export const Catalog: React.FC = () => {
         </ListHeader>
         <ScrollbarContainer>
           <TableBody>
+            <Divider />
+
             {catalogInformation.map((product: Iproduct) => (
               <article key={product.version_uuid}>
-                <Divider />
                 <CustomRow>
                   <Col xs={1.5}>
                     <ImageCar>
@@ -214,13 +215,13 @@ export const Catalog: React.FC = () => {
                     </ItensContainer>
                   </Col>
                 </CustomRow>
+                <Divider />
               </article>
             ))}
           </TableBody>
         </ScrollbarContainer>
-        <Divider />
         <SeeAllLink>
-          <Text component="span" fontSize="14px" color="blue-violet">
+          <Text component="span" fontSize="14px" color="bright-blue">
             Ver Tudo
           </Text>
           <MdOutlineArrowRight color={theme['bright-blue']} size={20} />

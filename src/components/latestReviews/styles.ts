@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { Select } from 'antd';
 import { Row } from 'react-grid-system';
 
 export const ScrollbarContainer = styled.div`
-  overflow-x: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 `;
 
 export const TableBody = styled.div`
@@ -56,7 +56,6 @@ export const ItemPlate = styled.span`
 
 export const ListWrapper = styled.div`
   width: 100%;
-  border-collapse: collapse;
   text-align: center;
   padding: 15px 20px;
   border: 1px solid rgba(0, 0, 0, 0.12);
@@ -102,9 +101,9 @@ export const Divider = styled.div`
 export const SeeAllLink = styled.div`
   display: flex;
   align-items: center;
-  justify-content: end;
   padding: 0 16px;
-  height: 20px;
+  height: 40px;
+  justify-content: end;
 
   &:hover {
     cursor: pointer;

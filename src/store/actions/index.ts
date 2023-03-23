@@ -1,5 +1,5 @@
-import { setCatalogInformation } from './action';
+import { getCatalogInformationAction } from './action';
 
 export const actions = {
-  setCatalogInformation,
+  getCatalogInformationAction,
 };
