@@ -1,3 +1,21 @@
+export type ThemeProps =
+  | 'ice-blue'
+  | 'white-two'
+  | 'white-three'
+  | 'grey-back'
+  | 'pale-grey'
+  | 'pale-grey-two'
+  | 'slate-grey'
+  | 'steel'
+  | 'brownish-grey'
+  | 'brownish-grey-two'
+  | 'dark-blue-grey'
+  | 'bright-blue'
+  | 'blue-violet'
+  | 'coral'
+  | 'black-38'
+  | 'black-87';
+
 export const defaultTheme = {
   'ice-blue': '#f3f7ff',
 

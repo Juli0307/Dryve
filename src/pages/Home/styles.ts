@@ -5,17 +5,17 @@ export const HomeContainer = styled.div`
 `;
 
 export const CatalogContainer = styled.div`
-  width: 770px;
+  width: calc(100%);
   height: 40rem;
   background-color: white;
   display: flex;
-  margin-left: 110px;
   border-radius: 4px;
   margin-top: 30px;
   padding: 0;
-  position: absolute;
 `;
 
-export const GraphicAling = styled.div`
+export const GridContainer = styled.div`
+  width: calc(100% - 60px);
   display: grid;
+  grid-template-columns: 9fr 3fr;
 `;

@@ -1,54 +1,67 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import * as echarts from 'echarts';
-import { GraphicAling, GraphicContainer } from './styles';
 import ReactECharts from 'echarts-for-react';
-import { left } from 'styled-system';
+import { GraphicContainer } from './styles';
+
+import Text from '../Text';
+
+const graphicData = [
+  { value: 60, name: 'Na média', itemStyle: { color: '#1070ca' } },
+  {
+    value: 25,
+    name: 'Acima da média',
+    itemStyle: { color: '#ec4c47' },
+  },
+  {
+    value: 15,
+    name: 'Abaixo da média',
+    itemStyle: { color: '#f7d154' },
+  },
+];
+
+const CustomTitle = () => {
+  return (
+    <Text
+      fontSize="14px"
+      component="h4"
+      fontWeight="500"
+      textAlign="initial"
+      color="black-87"
+    >
+      Preços - Dryve x KBB
+    </Text>
+  );
+};
 
 export const GraphicIndex: React.FC = () => {
   const options = {
     tooltip: {
       trigger: 'item',
+      formatter: '{a} <br/>{b} : {c} ({d}%)',
     },
     legend: {
       orient: 'vertical',
-      right: 0,
+      icon: 'circle',
       top: 'center',
-      itemWidth: 10,
-      itemHeight: 10,
-      textStyle: {
-        fontSize: 10, // tamanho da fonte dos itens da legenda
-      },
+      right: '0',
+      formatter: (name: string) =>
+        `${name} (${graphicData.find((info) => info?.name === name)?.value}%)`,
     },
     series: [
       {
-        avoidLabelOverlap: false,
+        name: 'Porcentagem',
+        type: 'pie',
+        radius: ['60%', '70%'],
+        center: ['30%', '50%'],
         label: {
           show: false,
-          position: 'right',
+          position: 'center',
         },
-        emphasis: {
-          label: {
-            show: true,
-            fontSize: 10,
-            fontWeight: 'bold',
-          },
-        },
+
         labelLine: {
           show: false,
         },
-        data: [
-          { value: 60, name: 'Na média', itemStyle: { color: '#1070ca' } },
-          {
-            value: 25,
-            name: 'Acima da média',
-            itemStyle: { color: '#ec4c47' },
-          },
-          {
-            value: 15,
-            name: 'Abaixo da média',
-            itemStyle: { color: '#f7d154' },
-          },
-        ],
+        data: graphicData,
       },
     ],
   };
@@ -56,7 +69,16 @@ export const GraphicIndex: React.FC = () => {
   return (
     <div>
       <GraphicContainer>
-        <ReactECharts echarts={echarts} option={options}></ReactECharts>
+        <CustomTitle />
+        <ReactECharts
+          echarts={echarts}
+          option={options}
+          style={{
+            width: '100%',
+            height: '186px',
+            transform: 'translateX(-10%)',
+          }}
+        ></ReactECharts>
       </GraphicContainer>
     </div>
   );

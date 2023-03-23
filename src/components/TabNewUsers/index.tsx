@@ -1,33 +1,22 @@
-import { Tabs } from 'antd';
+import { Button, Tabs } from 'antd';
+import { Col, Row } from 'react-grid-system';
+import { IoAtOutline } from 'react-icons/io5';
+import { Option } from '../../store/types';
+import Content from '../Content';
+import Text from '../Text';
+
 import {
-  AdressContainer,
-  AdressDetailsContainer,
+  ButtonCancel,
+  ButtonSave,
   CascaderState,
-  CEPContainer,
-  CityContainer,
-  EmailContainer,
+  CustomInput,
   FooterContainer,
-  InputAdress,
-  InputAdressDetails,
-  InputCEP,
-  InputCity,
-  InputEmail,
-  InputName,
-  InputNeighborhood,
-  InputPhone,
-  NameContainer,
-  NeighborhoodContainer,
-  PhoneContainer,
+  InputRow,
+  PositionInput,
   TabContainer,
   TabTitle,
 } from './styles';
 import { CustomLabel } from './styles';
-
-interface Option {
-  value: string | number;
-  label: string;
-  children?: Option[];
-}
 
 const options: Option[] = [
   {
@@ -48,13 +37,9 @@ const options: Option[] = [
   },
 ];
 
-const onChange = (value: string[], selectedOptions?: Option[]) => {
-  console.log(value);
-};
-
 export const TabNewUsers: React.FC = () => (
-  <div>
-    <TabTitle>OPA</TabTitle>
+  <Content>
+    <TabTitle>Adicionar cliente</TabTitle>
     <TabContainer>
       <Tabs
         defaultActiveKey="1"
@@ -64,37 +49,64 @@ export const TabNewUsers: React.FC = () => (
             key: '1',
             children: (
               <form>
-                <NameContainer>
-                  <InputName placeholder="Nome" />
-                  <InputName placeholder="Sobrenome" />
-                </NameContainer>
-                <EmailContainer>
-                  <InputEmail placeholder="Email" />
-                </EmailContainer>
-                <PhoneContainer>
-                  <InputPhone placeholder="Telefone" />
-                </PhoneContainer>
-                <CEPContainer>
-                  <InputCEP placeholder="CEP" />
-                </CEPContainer>
-                <AdressContainer>
-                  <InputAdress placeholder="Endereço" />
-                </AdressContainer>
-                <AdressDetailsContainer>
-                  <InputAdressDetails placeholder="Número" />
-                  <InputAdressDetails placeholder="Complemento" />
-                </AdressDetailsContainer>
-                <NeighborhoodContainer>
-                  <InputNeighborhood placeholder="Bairro" />
-                </NeighborhoodContainer>
-                <CityContainer>
-                  <InputCity placeholder="Cidade" />
-                  <CascaderState
-                    options={options}
-                    onChange={onChange}
-                    placeholder="Estado"
-                  />
-                </CityContainer>
+                <PositionInput>
+                  <Row>
+                    <Col xs={12} lg={6}>
+                      <InputRow>
+                        <Col xs={12} lg={6}>
+                          <CustomInput placeholder="Nome" />
+                        </Col>
+                        <Col xs={21} lg={6}>
+                          <CustomInput placeholder="Sobrenome" />
+                        </Col>
+                      </InputRow>
+                      <InputRow>
+                        <Col xs={12}>
+                          <CustomInput placeholder="Email" />
+                        </Col>
+                      </InputRow>
+                      <InputRow>
+                        <Col xs={12} lg={6}>
+                          <CustomInput placeholder="Telefone" />
+                        </Col>
+                      </InputRow>
+                      <InputRow>
+                        <Col xs={12} lg={6}>
+                          <CustomInput placeholder="CEP" />
+                        </Col>
+                      </InputRow>
+                      <InputRow>
+                        <Col xs={12}>
+                          <CustomInput placeholder="Endereço" />
+                        </Col>
+                      </InputRow>
+                      <InputRow>
+                        <Col xs={12} lg={6}>
+                          <CustomInput placeholder="Número" />
+                        </Col>
+                        <Col xs={12} lg={6}>
+                          <CustomInput placeholder="Complemento" />
+                        </Col>
+                      </InputRow>
+                      <InputRow>
+                        <Col xs={12}>
+                          <CustomInput placeholder="Bairro" />
+                        </Col>
+                      </InputRow>
+                      <InputRow>
+                        <Col xs={12} lg={6}>
+                          <CustomInput placeholder="Cidade" />
+                        </Col>
+                        <Col xs={12} lg={6}>
+                          <CascaderState
+                            options={options}
+                            placeholder="Estado"
+                          />
+                        </Col>
+                      </InputRow>
+                    </Col>
+                  </Row>
+                </PositionInput>
               </form>
             ),
           },
@@ -113,6 +125,31 @@ export const TabNewUsers: React.FC = () => (
         ]}
       />
     </TabContainer>
-    <FooterContainer></FooterContainer>
-  </div>
+
+    <FooterContainer>
+      <ButtonSave>
+        <Text
+          component="span"
+          fontSize="14px"
+          fontWeight="500"
+          textAlign="center"
+          color="white-two"
+        >
+          SALVAR
+        </Text>
+      </ButtonSave>
+
+      <ButtonCancel>
+        <Text
+          component="span"
+          fontSize="14px"
+          fontWeight="500"
+          textAlign="center"
+          color="blue-violet"
+        >
+          CANCELAR
+        </Text>
+      </ButtonCancel>
+    </FooterContainer>
+  </Content>
 );

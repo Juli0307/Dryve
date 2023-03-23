@@ -1,16 +1,11 @@
 import {
-  ArrowDown,
-  ArrowUp,
-  CardContainer,
-  CardContent,
-  CardTitle,
   Description,
   ContentContainer,
-  DownPercent,
   FooterCard,
   Oval,
-  UpPercent,
   Icons,
+  ArrowContainer,
+  PercentContainer,
 } from './styles';
 import { Card } from './styles';
 import {
@@ -20,71 +15,141 @@ import {
   MdAttachMoney,
 } from 'react-icons/md';
 import { IoMdCar } from 'react-icons/io';
+import { Col, Row } from 'react-grid-system';
+import Text from '../Text';
+import Space from '../Space';
 
 export function Cards() {
   return (
-    <CardContainer>
-      <Card>
-        <CardTitle>AVALIAÇÕES HOJE</CardTitle>
-        <ContentContainer>
-          <CardContent>29</CardContent>
-          <Oval>
-            <Icons>
-              <IoMdCar size={30} />
-            </Icons>
-          </Oval>
-        </ContentContainer>
-        <FooterCard>
-          {' '}
-          <ArrowUp>
-            {' '}
-            <MdOutlineArrowDropUp size={22} />
-          </ArrowUp>
-          <UpPercent>36%</UpPercent>
-          <Description>desde ontem</Description>
-        </FooterCard>
-      </Card>
-      <Card>
-        {' '}
-        <CardTitle>CARROS PUBLICADOS</CardTitle>
-        <ContentContainer>
-          <CardContent>397</CardContent>
-          <Oval>
-            {' '}
-            <Icons>
-              <MdImportantDevices size={30} />
-            </Icons>
-          </Oval>
-        </ContentContainer>
-        <FooterCard>
-          <ArrowUp>
-            {' '}
-            <MdOutlineArrowDropUp size={22} />
-          </ArrowUp>
-          <UpPercent>4%</UpPercent>
-          <Description>este mês</Description>
-        </FooterCard>
-      </Card>
-      <Card>
-        {' '}
-        <CardTitle>TICKET MÉDIO DO ESTOQUE</CardTitle>
-        <ContentContainer>
-          <CardContent>R$42.567</CardContent>
-          <Oval>
-            <Icons>
-              <MdAttachMoney size={30} />
-            </Icons>
-          </Oval>
-        </ContentContainer>
-        <FooterCard>
-          <ArrowDown>
-            {' '}
-            <MdOutlineArrowDropDown size={22} />
-          </ArrowDown>
-          <DownPercent>6%</DownPercent>
-          <Description>este mês</Description>
-        </FooterCard>
-      </Card>
-    </CardContainer>
+    <>
+      <Row gutterWidth={20}>
+        <Col xs={12} lg={4}>
+          <Card>
+            <Text
+              fontSize="10px"
+              fontWeight="500"
+              component="h4"
+              textAlign="initial"
+              color="black-87"
+              opacity={0.5}
+            >
+              AVALIAÇÕES HOJE
+            </Text>
+
+            <ContentContainer>
+              <Text
+                fontSize="34px"
+                fontWeight="normal"
+                component="span"
+                textAlign="initial"
+                color="black-87"
+              >
+                <Space mT={6} /> 29
+              </Text>
+
+              <Oval>
+                <Icons>
+                  <IoMdCar size={30} />
+                </Icons>
+              </Oval>
+            </ContentContainer>
+            <FooterCard>
+              <ArrowContainer>
+                <MdOutlineArrowDropUp size={22} />
+              </ArrowContainer>
+              <PercentContainer>
+                <Text fontSize="12px" color="blue-violet" component="span">
+                  36%
+                </Text>
+              </PercentContainer>
+              <Description>desde ontem</Description>
+            </FooterCard>
+          </Card>
+        </Col>
+        <Col xs={12} lg={4}>
+          <Card>
+            <Text
+              fontSize="10px"
+              fontWeight="500"
+              component="h4"
+              textAlign="initial"
+              color="black-87"
+              opacity={0.5}
+            >
+              CARROS PUBLICADOS
+            </Text>
+            <ContentContainer>
+              <Text
+                fontSize="34px"
+                fontWeight="normal"
+                component="span"
+                textAlign="initial"
+                color="black-87"
+              >
+                <Space mT={6} /> 397
+              </Text>
+              <Oval>
+                <Icons>
+                  <MdImportantDevices size={30} />
+                </Icons>
+              </Oval>
+            </ContentContainer>
+            <FooterCard>
+              <ArrowContainer>
+                <MdOutlineArrowDropUp size={22} />
+              </ArrowContainer>
+              <PercentContainer>
+                <Text fontSize="12px" color="blue-violet" component="span">
+                  4%
+                </Text>
+              </PercentContainer>
+              <Description>este mês</Description>
+            </FooterCard>
+          </Card>
+        </Col>
+        <Col xs={12} lg={4}>
+          <Card>
+            <Text
+              fontSize="10px"
+              fontWeight="500"
+              component="h4"
+              textAlign="initial"
+              color="black-87"
+              opacity={0.5}
+            >
+              TICKET MÉDIO DO ESTOQUE
+            </Text>
+            <ContentContainer>
+              <Text
+                fontSize="34px"
+                fontWeight="normal"
+                component="span"
+                textAlign="initial"
+                color="black-87"
+              >
+                <Space mT={6} /> R$42.567
+              </Text>
+              <Oval>
+                <Icons>
+                  <MdAttachMoney size={30} />
+                </Icons>
+              </Oval>
+            </ContentContainer>
+            <FooterCard>
+              <ArrowContainer>
+                <MdOutlineArrowDropDown size={22} />
+              </ArrowContainer>
+              <PercentContainer>
+                {' '}
+                <Text fontSize="12px" color="coral" component="span">
+                  6%
+                </Text>
+              </PercentContainer>
+              <Description>este mês</Description>
+            </FooterCard>
+          </Card>
+        </Col>
+      </Row>
+    </>
   );
 }

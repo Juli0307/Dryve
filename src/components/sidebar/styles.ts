@@ -9,19 +9,19 @@ export const SidebarHeader = styled.div`
   border-top: 10rem;
 `;
 
-export const SidebarBody = styled.div`
-  padding: 2rem;
+export const SidebarBody = styled.div<{ closed?: boolean }>`
   display: grid;
-  gap: 1rem;
+  padding: 0 ${(props) => (props.closed ? '30px' : '15px')};
   color: #acb0b7 !important;
 
-  a:-webkit-any-link {
+  a {
     color: ${(props) => props.theme['black-87']};
     width: 18px;
     opacity: 0.3;
     align-items: center;
     cursor: pointer;
-
+    height: 40px;
+    transition: width 0.3s ease-in-out;
     &:hover {
       color: ${(props) => props.theme['bright-blue']};
       opacity: 1;
@@ -40,15 +40,15 @@ export const SidebarContainer = styled.div<{ isOpen: boolean }>`
   transition: width 0.3s ease-in-out;
   box-shadow: 1px 0 0 0 #e0e0e0;
 
-  @media (max-width: 576px) {
-    width: 100%;
+  a {
+    text-decoration: none;
   }
 `;
 
-export const SidebarButton = styled.button`
+export const SidebarButton = styled.button<{ isOpen?: boolean }>`
   position: absolute;
   bottom: 20px;
-  left: 25px;
+  left: ${(props) => (props?.isOpen ? 'calc(100% - 40px)' : '25px')};
   z-index: 2;
   background: transparent;
   border: none;
@@ -71,14 +71,6 @@ export const SidebarContent = styled.div<{ isOpen: boolean }>`
 `;
 
 export const SidebarDescription = styled.div`
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.14;
-  letter-spacing: 0.1px;
-  color: ${(props) => props.theme['black-87']};
   text-decoration: none;
 
   &:hover {
@@ -86,8 +78,34 @@ export const SidebarDescription = styled.div`
   }
 `;
 
-export const SidebarDescriptionContainer = styled.div`
+export const SidebarIcons = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  border: 1px solid transparent;
+  padding: 0 15px;
+
+  & > div {
+    width: 30px;
+  }
+
+  &:hover {
+    color: ${(props) => props.theme['bright-blue']};
+    border: ${(props) => `1px solid ${props.theme['bright-blue']}`};
+    background-color: ${(props) => props.theme['ice-blue']};
+  }
+`;
+export const LogoffContainer = styled.div`
+  align-items: center;
+  display: grid;
+  cursor: pointer;
+`;
+
+export const IconHeader = styled.div`
+  display: flex;
+  align-items: center;
+  opacity: 0.4;
+  letter-spacing: 1.5px;
+  gap: 5px;
 `;

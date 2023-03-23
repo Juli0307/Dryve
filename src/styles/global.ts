@@ -9,10 +9,9 @@ export const GlobalStyle = createGlobalStyle`
 
 
 body {
-  width: 90vw;
-  height: 80vh;
-  max-width: 1366px;
-  max-height: 970px;
-  background-color:${(props) => props.theme['pale-grey']}
+  width: 100%;
+  height: 100%;
+  background-color:${(props) => props.theme['pale-grey']};
+  font-family: 'Inter', sans-serif;
 }}
 `;

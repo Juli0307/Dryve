@@ -1,4 +1,4 @@
-import { TableUsers } from '../../components/tableUsers';
+import { TableUsers } from '../../components/TableUsers';
 
 export function Users() {
   return (
