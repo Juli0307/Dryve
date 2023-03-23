@@ -104,7 +104,7 @@ export const SeeAllLink = styled.div`
   align-items: center;
   justify-content: end;
   padding: 0 16px;
-  height: 36px;
+  height: 20px;
 
   &:hover {
     cursor: pointer;
